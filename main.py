@@ -243,7 +243,7 @@ def map_streaming_resp(chunk: GenerationResponse) -> ChatCompletionChunk | None:
                 args = dict(call.args)
                 for key, value in args.items():
                     if isinstance(args[key], str):
-                        args[key] = value.replace('\\', '')
+                        args[key] = value.replace('\\n', '\n')
 
                 tool_calls.append({
                     "index": idx,
